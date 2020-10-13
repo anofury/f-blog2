@@ -1,7 +1,6 @@
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common');
 
@@ -31,31 +30,44 @@ module.exports = merge(common, {
         minimizer: [
             new TerserPlugin({
                 terserOptions: {
-                    warnings: false,
                     compress: {
+                        warnings: false,
                         drop_debugger: true,
-                        drop_console: true,
+                        // drop_console: true,
+                        // pure_funcs: ['console.log'],
                     }
                 },
                 extractComments: false,
             }),
-            new OptimizeCSSAssetsPlugin(),
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    discardComments: {
+                        removeAll: true,
+                    },
+                    safe: true,
+                    autoprefixer: false
+                },
+            }),
         ],
     },
     module: {
         rules: [
             {
                 test: /\.(css|less)/,
-                loader: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+                loader: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
+                // loader: 'css-loader',
+                // options: {
+                //     modules: {
+                //         localIdentName: '[name]-[local]-[hash:8]'
+                //     }
+                // }
                 exclude: /node_modules/,
             },
         ],
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-            chunkFilename: '[id].css',
+            filename: 'css/[name].css?[contenthash:8]',
         }),
-        new CleanWebpackPlugin(),
     ],
 })

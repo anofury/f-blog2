@@ -15,8 +15,9 @@ module.exports = merge(common, {
             },
         ]
     },
+    devtool: 'inline-source-map',
     plugins: [
-        webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     devServer: {
         contentBase: DIST_DIR,

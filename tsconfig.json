@@ -6,13 +6,19 @@
 		"noEmit": true,
 		"strict": true,
 		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"allowJs": true,
+		"baseUrl": "./",
+		"paths": {
+			"@comp/*": ["src/components/*"],
+		}
 	},
 	"include": [
-		"src"
+		"src/**/*"
 	],
 	"exclude": [
 		"node_modules",
-		"./build"
+		"build"
 	]
 }
