@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Hello from '@comp/Hello/Hello'
 import Button from '@comp/Button/Button'
 import './index.less'
-
+import IconAvatar from './avatar.jpg'
 
 interface IndexProps { }
 interface IndexState {
@@ -30,6 +30,7 @@ class Index extends Component<IndexProps, IndexState> {
                 <Hello />
                 <Button initCount={0} />
                 <p className='time'>{time.toLocaleString()}</p>
+                <img src={IconAvatar} />
             </div>
         )
     }
