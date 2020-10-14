@@ -60,7 +60,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: Path.resolve(COM_DIR, './index.html'),
-			title: 'react-ts demo',
+			title: 'react-ts-demo',
 			inject: true,
 			timestamp: new Date().getTime(),
 			minify: {

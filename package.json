@@ -1,8 +1,8 @@
 {
-  "name": "f-blog2",
+  "name": "react-ts-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/anofury/f-blog2.git",
+  "repository": "https://github.com/anofury/react-ts-demo.git",
   "author": "anofury <anofury@gmail.com>",
   "license": "MIT",
   "browserslist": [
