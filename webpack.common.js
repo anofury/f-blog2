@@ -33,6 +33,7 @@ module.exports = {
 						limit: 8192,
 						esModule: false,
 						outputPath: 'imgs',
+						name: '[name].[ext]',
 					},
 				}],
 			},
