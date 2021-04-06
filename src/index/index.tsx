@@ -10,6 +10,10 @@ interface IndexState {
     time: Date
 }
 
+interface a {
+    v: number
+}
+
 class Index extends Component<IndexProps, IndexState> {
     readonly state: IndexState = {
         time: new Date()

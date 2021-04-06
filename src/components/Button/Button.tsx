@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import './Button.less'
 
 interface Props {
     initCount: number
 }
 
-export default function Button(props: Props) {
+export default memo(function Button(props: Props) {
     const [count, setCount] = useState(props.initCount || 0)
     const onTapBtn = () => {
         setCount(count + 1)
@@ -16,4 +16,4 @@ export default function Button(props: Props) {
             <button onClick={onTapBtn}>你点击了 {count} 次</button>
         </div>
     )
-}
+})
